@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Jean Carlos & Tauane Alves</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#eef2fb;
+      color:#444;
+    }
+
+
+  header{
+  width:100%;
+  height:100vh;
+
+  background-image:
+  linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+  url('imagns/casal.jpg');
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+  padding:20px;
+}
+
+    .hero{
+      color:white;
+    }
+
+    .hero h1{
+      font-family:'Great Vibes',cursive;
+      font-size:4rem;
+      font-weight:400;
+    }
+
+    .hero p{
+      margin-top:10px;
+      font-size:1.2rem;
+      letter-spacing:2px;
+    }
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:rgba(255,255,255,.9);
+      backdrop-filter:blur(8px);
+      z-index:1000;
+
+      padding:15px 20px;
+
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#0b1f4d;
+      font-weight:600;
+      font-size:.95rem;
+    }
+
+    section{
+      padding:80px 20px;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .titulo{
+      text-align:center;
+      font-size:2.5rem;
+      color:#0b1f4d;
+      margin-bottom:40px;
+      font-weight:700;
+    }
+
+    .mensagem{
+      text-align:center;
+      font-size:1.2rem;
+      line-height:2;
+      max-width:900px;
+      margin:auto;
+    }
+
+    .contador{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-top:40px;
+    }
+
+    .box{
+      background:#0b1f4d;
+      color:white;
+
+      width:140px;
+      height:140px;
+
+      border-radius:20px;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+
+      box-shadow:0 8px 20px rgba(0,0,0,.1);
+    }
+
+    .box span{
+      font-size:3rem;
+      font-weight:700;
+    }
+
+    .presentes{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:white;
+      border-radius:25px;
+      overflow:hidden;
+
+      box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+      transition:.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+      text-align:center;
+    }
+
+    .card h3{
+      margin-bottom:10px;
+      font-size:1.2rem;
+    }
+
+    .valor{
+      color:#0b1f4d;
+      font-size:1.5rem;
+      font-weight:700;
+      margin:15px 0;
+    }
+
+    .btn{
+      display:inline-block;
+      width:100%;
+
+      padding:14px;
+
+      border:none;
+      border-radius:40px;
+
+      background:#0b1f4d;
+      color:white;
+
+      font-size:1rem;
+      font-weight:600;
+
+      cursor:pointer;
+      transition:.3s;
+    }
+
+    .btn:hover{
+      opacity:.9;
+    }
+
+    form{
+      background:white;
+      padding:30px;
+
+      border-radius:25px;
+
+      box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+      max-width:700px;
+      margin:auto;
+    }
+
+    input, textarea{
+      width:100%;
+      padding:15px;
+
+      margin-bottom:20px;
+
+      border:none;
+      border-bottom:2px solid #ccc;
+
+      font-size:1rem;
+      outline:none;
+
+      background:#fafafa;
+    }
+
+    textarea{
+      resize:none;
+      height:120px;
+    }
+
+    button{
+      width:100%;
+      padding:15px;
+
+      background:#0b1f4d;
+      border:none;
+
+      color:white;
+
+      border-radius:40px;
+
+      font-size:1rem;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    footer{
+      text-align:center;
+      padding:40px 20px;
+
+      background:#0b1f4d;
+      color:white;
+
+      margin-top:60px;
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:3rem;
+      }
+
+      nav{
+        gap:12px;
+      }
+
+      .titulo{
+        font-size:2rem;
+      }
+
+      .box{
+        width:120px;
+        height:120px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#mensagem">Mensagem</a>
+    <a href="#contador">Contagem</a>
+    <a href="#local">Local</a>
+    <a href="#presentes">Presentes</a>
+    <a href="#confirmacao">Confirmação</a>
+  </nav>
+
+
+  <header id="inicio">
+
+    <div class="hero">
+      <h1>Jean Carlos & Tauane Alves</h1>
+      <p>03 de Outubro de 2026 • 11:00 horas</p>
+    </div>
+
+  </header>
+
+
+  <section id="mensagem">
+
+    <h2 class="titulo">Mensagem Inicial</h2>
+
+    <p class="mensagem">
+      O grande dia está chegando e não poderíamos estar mais felizes em compartilhar esse momento tão especial com nossa família e amigos.
+      <br><br>
+      Será uma honra contar com sua presença em nossa celebração.
+      Estamos preparando tudo com muito amor, carinho e gratidão.
+    </p>
+
+  </section>
+
+
+  <section id="contador">
+
+    <h2 class="titulo">Contagem Regressiva</h2>
+
+    <div class="contador">
+
+      <div class="box">
+        <span id="dias">0</span>
+        <small>Dias</small>
+      </div>
+
+      <div class="box">
+        <span id="horas">0</span>
+        <small>Horas</small>
+      </div>
+
+      <div class="box">
+        <span id="minutos">0</span>
+        <small>Minutos</small>
+      </div>
+
+      <div class="box">
+        <span id="segundos">0</span>
+        <small>Segundos</small>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="local">
+
+    <h2 class="titulo">Local da Cerimônia</h2>
+
+    <div style="text-align:center;">
+
+      <p style="font-size:1.2rem; margin-bottom:25px;">
+        Igreja São Raimundo Nonato - Paróquia Santa Teresinha
+        <br>
+        Itaituba - PA
+      </p>
+
+      <a
+        class="btn"
+        style="max-width:300px;"
+        href="https://www.google.com/maps/search/?api=1&query=Igreja+São+Raimundo+Nonato+Paróquia+Santa+Teresinha+Itaituba+PA"
+        target="_blank">
+
+        Ver localização
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+<section id="presentes">
+
+  <h2 class="titulo">Lista de Presentes</h2>
+
+  <div class="presentes">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Café da manhã lua de mel</h3>
+        <p class="valor">R$ 45,00</p>
+        <button class="btn" onclick="copiarPix('45,00')">Presentear</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1525382455947-f319bc05fb9b?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Ajuda na viagem</h3>
+        <p class="valor">R$ 100,00</p>
+        <button class="btn" onclick="copiarPix('100,00')">Presentear</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Jogo de cama</h3>
+        <p class="valor">R$ 80,00</p>
+        <button class="btn" onclick="copiarPix('80,00')">Presentear</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Jantar romântico</h3>
+        <p class="valor">R$ 120,00</p>
+        <button class="btn" onclick="copiarPix('120,00')">Presentear</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Conjunto de pratos</h3>
+        <p class="valor">R$ 150,00</p>
+        <button class="btn" onclick="copiarPix('150,00')">Presentear</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Fogão</h3>
+        <p class="valor">R$ 750,00</p>
+        <button class="btn" onclick="copiarPix('750,00')">Presentear</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Sofá</h3>
+        <p class="valor">R$ 1200,00</p>
+        <button class="btn" onclick="copiarPix('1200,00')">Presentear</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Geladeira</h3>
+        <p class="valor">R$ 900,00</p>
+        <button class="btn" onclick="copiarPix('900,00')">Presentear</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Lua de mel</h3>
+        <p class="valor">R$ 500,00</p>
+        <button class="btn" onclick="copiarPix('500,00')">Presentear</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=1200&auto=format&fit=crop">
+      
+      <div class="card-content">
+        <h3>Micro-ondas</h3>
+        <p class="valor">R$ 400,00</p>
+        <button class="btn" onclick="copiarPix('400,00')">Presentear</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Máquina de lavar</h3>
+        <p class="valor">R$ 1300,00</p>
+        <button class="btn" onclick="copiarPix('1300,00')">Presentear</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Televisão</h3>
+        <p class="valor">R$ 2000,00</p>
+        <button class="btn" onclick="copiarPix('2000,00')">Presentear</button>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="confirmacao">
+
+  <h2 class="titulo">Confirmação de Presença</h2>
+
+  <form onsubmit="enviarWhats(event)">
+
+    <input type="text" id="nome" placeholder="Nome completo" required>
+
+    <input type="email" id="email" placeholder="E-mail" required>
+
+    <input type="tel" id="telefone" placeholder="WhatsApp" required>
+
+    <textarea id="mensagemConfirmacao" placeholder="Mensagem"></textarea>
+
+    <button type="submit">
+      Confirmar Presença
+    </button>
+
+  </form>
+
+</section>
+
+  <footer>
+
+    <h2>Jean Carlos & Tauane Alves</h2>
+
+    <p>03/10/2026 às 11 horas</p>
+
+  </footer>
+
+
+  <script>
+
+    const dataCasamento =
+    new Date("October 03, 2026 11:00:00").getTime();
+
+
+    const contador = setInterval(() => {
+
+      const agora = new Date().getTime();
+
+      const distancia = dataCasamento - agora;
+
+
+      const dias =
+      Math.floor(distancia / (1000 * 60 * 60 * 24));
+
+      const horas =
+      Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+      const minutos =
+      Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+
+      const segundos =
+      Math.floor((distancia % (1000 * 60)) / 1000);
+
+
+      document.getElementById('dias').innerHTML = dias;
+      document.getElementById('horas').innerHTML = horas;
+      document.getElementById('minutos').innerHTML = minutos;
+      document.getElementById('segundos').innerHTML = segundos;
+
+
+      if(distancia < 0){
+        clearInterval(contador);
+      }
+
+    },1000);
+
+
+
+    function enviarWhats(event){
+
+      event.preventDefault();
+
+      const nome =
+      document.getElementById('nome').value;
+
+      const email =
+      document.getElementById('email').value;
+
+      const telefone =
+      document.getElementById('telefone').value;
+
+      const mensagem =
+      document.getElementById('mensagemConfirmacao').value;
+
+
+      const texto =
+`Olá! Confirmo presença no casamento.
+
+👤 Nome: ${nome}
+📧 Email: ${email}
+📱 WhatsApp: ${telefone}
+📝 Mensagem: ${mensagem}`;
+
+
+      window.open(
+        `https://wa.me/55939391864369?text=${encodeURIComponent(texto)}`,
+        '_blank'
+      );
+
+    }
+
+
+function copiarPix(valor){
+
+  const valorPix = valor.replace(",", ".");
+
+  let payload =
+  "000201" +
+  "26450014BR.GOV.BCB.PIX" +
+  "011161144418348" +
+  "0208PRESENTE" +
+  "52040000" +
+  "5303986" +
+  "54" + valorPix.length.toString().padStart(2,'0') + valorPix +
+  "5802BR" +
+  "5920JEAN CARLOS OLIVEIRA" +
+  "6008ITAITUBA" +
+  "62070503***" +
+  "6304";
+
+
+
+  function CRC16(payload) {
+
+    function ord(str){
+      return str.charCodeAt(0);
+    }
+
+    let crc = 0xFFFF;
+
+    for (let i = 0; i < payload.length; i++) {
+
+      crc ^= ord(payload[i]) << 8;
+
+      for (let j = 0; j < 8; j++) {
+
+        if ((crc <<= 1) & 0x10000) {
+          crc ^= 0x1021;
+        }
+
+        crc &= 0xFFFF;
+      }
+    }
+
+    return crc.toString(16).toUpperCase().padStart(4, '0');
+  }
+
+  payload += CRC16(payload);
+
+  navigator.clipboard.writeText(payload);
+
+  alert(
+`✅ Pix copiado!
+
+Valor: R$ ${valor}
+
+Cole no Nubank em:
+Área Pix → Pix Copia e Cola`
+  );
+
+}
+
+
+  </script>
+
+</body>
+</html>
